@@ -46,5 +46,6 @@ if [ $1 == "eks" ]; then
 fi
 
 source $SCRIPT_DIR/test-env.sh
+echo $MONGODB_URI
 
 popd
