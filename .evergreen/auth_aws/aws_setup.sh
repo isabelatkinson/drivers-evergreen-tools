@@ -46,9 +46,11 @@ if [ $1 == "eks" ]; then
 fi
 
 source $SCRIPT_DIR/test-env.sh
-echo $MONGODB_URI
-echo $AWS_ACCESS_KEY_ID
-echo $AWS_SECRET_ACCESS_KEY
-# echo $AWS_SESSION_TOKEN
+echo "export MONGODB_URI=$MONGODB_URI"
+
+if [ $1 == "env-creds" ]; then
+    echo "export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
+    echo "export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY"
+fi
 
 popd
