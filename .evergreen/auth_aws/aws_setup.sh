@@ -47,5 +47,8 @@ fi
 
 source $SCRIPT_DIR/test-env.sh
 echo $MONGODB_URI
+echo $AWS_ACCESS_KEY_ID
+echo $AWS_SECRET_ACCESS_KEY
+# echo $AWS_SESSION_TOKEN
 
 popd
