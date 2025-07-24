@@ -46,11 +46,27 @@ if [ $1 == "eks" ]; then
 fi
 
 source $SCRIPT_DIR/test-env.sh
-echo "export MONGODB_URI=$MONGODB_URI"
+
+echo ""
+echo "unset AWS_ACCESS_KEY_ID && unset AWS_SECRET_ACCESS_KEY && unset AWS_SESSION_TOKEN"
+echo "export MONGODB_URI=\"$MONGODB_URI\""
 
 if [ $1 == "env-creds" ]; then
-    echo "export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
-    echo "export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY"
+    echo "export AWS_ACCESS_KEY_ID=\"$AWS_ACCESS_KEY_ID\""
+    echo "export AWS_SECRET_ACCESS_KEY=\"$AWS_SECRET_ACCESS_KEY\""
 fi
+
+if [ $1 == "session-creds" ]; then
+    echo "export AWS_ACCESS_KEY_ID=\"$AWS_ACCESS_KEY_ID\""
+    echo "export AWS_SECRET_ACCESS_KEY=\"$AWS_SECRET_ACCESS_KEY\""
+    echo "export AWS_SESSION_TOKEN=\"$AWS_SESSION_TOKEN\""
+fi
+
+if [ $1 == "web-identity" ]; then
+    echo "export AWS_WEB_IDENTITY_TOKEN_FILE=\"$AWS_WEB_IDENTITY_TOKEN_FILE\""
+    echo "export AWS_ROLE_ARN=\"$AWS_ROLE_ARN\""
+fi
+
+echo ""
 
 popd
